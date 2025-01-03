@@ -1,0 +1,30 @@
+#include "Dense.hpp"
+
+template <typename T>
+Matrix<T> *Dense<T>::calculate(Matrix<T> *input)
+{
+    this->layer_input = input;
+    this->activate_value = dot(this->weight_matrix, this->layer_input);
+    this->layer_output = this->activation->run(this->activate_value);
+    return this->layer_output;
+}
+
+// self.delta = error * self.activation_derivative(self.layer_activation)
+template <typename T>
+void Dense<T>::apply_delta(Matrix<T> *delta)
+{
+    this->delta = this->activation->run_derivative(delta);
+}
+
+template <typename T>
+Matrix<T> *Dense<T>::calculate_delta()
+{
+    return this->delta * this->weight_matrix.T
+}
+
+template <typename T>
+void Dense<T>::update_param()
+{
+    Matrix<T> *weight_grad = this->layer_input.T * this->delta;
+    this->weight_matrix = this->weight_optimizer->run(this->weight_matrix, weight_grad)
+}
