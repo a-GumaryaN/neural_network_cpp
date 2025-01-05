@@ -3,12 +3,14 @@
 typedef std::string String;
 
 template <typename Value_type>
-class Abstract_array{
-    Value_type data[];
-    virtual Abstract_array(Value_type data[]);
-    virtual Abstract_array *reverse();
+class Abstract_array
+{
+public:
+    virtual void add(const T &item) = 0;
+    virtual const T &get(int index) const = 0;
+    virtual size_t size() const = 0;
+    virtual ~Abstract_array() = default;
 };
-
 
 template <typename Key_type, typename Value_type>
 class Abstract_paired_value
@@ -22,8 +24,6 @@ public:
 template <typename Key_type, typename Value_type>
 class Abstract_map
 {
-    Abstract_paired_value<Key_type, Value_type> data[];
-
 public:
     virtual void append(Key_type key, Value_type value);
     virtual Value_type *operator()(Key_type key) const = 0;
@@ -44,6 +44,6 @@ public:
     virtual AbstractMatrix<T> *multiply(const AbstractMatrix<T> &other) const = 0;
     virtual AbstractMatrix<T> *operator+(const AbstractMatrix<T> &other) const = 0;
     virtual AbstractMatrix<T> *operator-(const AbstractMatrix<T> &other) const = 0;
-    virtual AbstractMatrix<T> *sum(int axis=0,bool keepdims=true);
+    virtual AbstractMatrix<T> *sum(int axis = 0, bool keepdims = true);
     virtual void print() const = 0;
 };
