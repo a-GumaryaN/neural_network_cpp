@@ -11,7 +11,7 @@ Limited Flexibility: Tying the framework to a specific language or library can l
 
 Lack of Modularity: Many frameworks are built in a monolithic way, making it hard to replace specific components (e.g., optimizers, activation functions) without breaking other parts of the framework.
 
-Solution: Clean Architecture Neural Network Framework
+## Solution: Clean Architecture Neural Network Framework
 
 Our framework addresses these challenges by:
 
@@ -21,13 +21,13 @@ Abstracted Dependencies: We minimize the reliance on specific libraries, creatin
 
 Modular Design: The framework is built with modularity in mind. You can easily swap out components like optimizers, loss functions, and activation functions without impacting other parts of the framework.
 
-Features
+# Features
 
 Flexible Architecture: Designed to work with any neural network implementation or use case.
 Extensible: Easily integrate third-party libraries or replace internal components as needed.
 Minimal Dependencies: Works with a minimal set of dependencies and can easily adapt to other tools and libraries.
 
-Getting Started
+# Getting Started
 
 To get started with the framework, simply clone the repository and install the necessary dependencies:
 
