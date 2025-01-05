@@ -1,7 +1,7 @@
 #include "Dense.hpp"
 
 template <typename T>
-Matrix<T> *Dense<T>::calculate(Matrix<T> *input)
+AbstractMatrix<T> *Dense<T>::calculate(AbstractMatrix<T> *input)
 {
     this->layer_input = input;
     this->activate_value = dot(this->weight_matrix, this->layer_input);
@@ -11,13 +11,13 @@ Matrix<T> *Dense<T>::calculate(Matrix<T> *input)
 
 // self.delta = error * self.activation_derivative(self.layer_activation)
 template <typename T>
-void Dense<T>::apply_delta(Matrix<T> *delta)
+void Dense<T>::apply_delta(AbstractMatrix<T> *delta)
 {
     this->delta = this->activation->run_derivative(delta);
 }
 
 template <typename T>
-Matrix<T> *Dense<T>::calculate_delta()
+AbstractMatrix<T> *Dense<T>::calculate_delta()
 {
     return this->delta * this->weight_matrix.T
 }
@@ -25,6 +25,9 @@ Matrix<T> *Dense<T>::calculate_delta()
 template <typename T>
 void Dense<T>::update_param()
 {
-    Matrix<T> *weight_grad = this->layer_input.T * this->delta;
+    AbstractMatrix<T> *weight_grad = this->layer_input.T * this->delta;
     this->weight_matrix = this->weight_optimizer->run(this->weight_matrix, weight_grad)
+
+    AbstractMatrix<T> *bias_grad = this->delta->sum(1,true);
+    this->bias_optimizer->run(this->bias,bias_grad);
 }

@@ -1,11 +1,15 @@
-#include <vector>
+#include "Data_types.hpp"
 
-class Task{};
-
-class Parallel{
-    std::vector <Task> *tasks;
+class Task
+{
 };
 
-class Sequential{
-    std::vector <Task> *tasks;
+class Parallel
+{
+    Abstract_array<Task> *tasks;
+};
+
+class Sequential
+{
+    Abstract_array<Task> *tasks;
 };

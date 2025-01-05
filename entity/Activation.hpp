@@ -1,4 +1,4 @@
-#include "Matrix.hpp"
+#include "Data_types.hpp"
 #include "Process.hpp"
 
 class Pure_activation

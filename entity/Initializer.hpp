@@ -1,18 +1,33 @@
-#include <vector>
-#include "Matrix.hpp"
+#include "Data_types.hpp"
 
-
-template <typename T>
-class Initializer{
-    public:
+template <typename Initialized_value_type>
+class Abstract_initializer
+{
+public:
     Initializer();
-    virtual Matrix<T> *run(std::vector<int> input_shape);
+    virtual AbstractMatrix<Initialized_value_type> *run(Abstract_array<inInitialized_value_type> input_shape);
 };
 
-template <typename T>
-class Random:public Initializer{
-    Matrix<T> *run(std::vector<int> input_shape)override;
+template <typename Initialized_value_type>
+class Random : public Abstract_initializer
+{
+    AbstractMatrix<Initialized_value_type> *run(Abstract_array<inInitialized_value_type> input_shape) override;
 };
 
-template <typename T>
-class Xavier:public Initializer{};
+template <typename Initialized_value_type>
+class Xavier : public Abstract_initializer
+{
+    AbstractMatrix<Initialized_value_type> *run(Abstract_array<inInitialized_value_type> input_shape) override;
+};
+
+template <typename Initialized_value_type>
+class Normal : public Abstract_initializer
+{
+    AbstractMatrix<Initialized_value_type> *run(Abstract_array<inInitialized_value_type> input_shape) override;
+};
+
+template <typename Initialized_value_type>
+class initializer_selector
+{
+    Abstract_map<String,Abstract_initializer<Initialized_value_type>> *registered;
+};

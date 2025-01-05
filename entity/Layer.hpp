@@ -1,5 +1,4 @@
-#include <iostream>
-#include "Matrix.hpp"
+#include "Data_types.hpp"
 #include "Activation.hpp"
 
 template <typename T>
@@ -9,24 +8,26 @@ public:
     // number of layer in network
     int layer_number = 0;
     //shape of layer
-    Matrix<T> layer_shape;
+    AbstractMatrix<T> layer_shape;
     //activation function of layer
     Activation<T> *activation;
     //input value of layer in forward propagation process
-    Matrix<T> layer_input;
+    AbstractMatrix<T> *layer_input;
     //activated value
-    Matrix<T> activate_value;
+    AbstractMatrix<T> *activate_value;
     //output value of layer in forward propagation process
-    Matrix<T> layer_output;
+    AbstractMatrix<T> *layer_output;
     //type of layer that can be convolutional, dense or etc
-    std::string layer_type;
+    String layer_type;
     //layer delta
-    Matrix<T> delta;
+    AbstractMatrix<T> *delta;
+    //layer bias
+    AbstractMatrix <T> *bias;
 
-    virtual void init_param(int layer_number, Matrix prev_layer_shape);
-    virtual Matrix *calculate(Matrix *input);
-    virtual void apply_delta(Matrix *delta);
-    virtual Matrix *calculate_delta();
+    virtual void init_param(int layer_number, AbstractMatrix<T> prev_layer_shape);
+    virtual AbstractMatrix<T> *calculate(AbstractMatrix<T> *input);
+    virtual void apply_delta(AbstractMatrix<T> *delta);
+    virtual AbstractMatrix<T> *calculate_delta();
     virtual void update_param();
     virtual ~Layer();
 };

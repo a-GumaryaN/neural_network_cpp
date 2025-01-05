@@ -1,19 +1,20 @@
-#include "Matrix.hpp"
+#include "Data_types.hpp"
 
 template <typename T>
-class Optimizer{
-    long learning_rate=0;
-    void run(Matrix *parameter,Matrix *gradin);
+class Optimizer
+{
+    Abstract_map<String, long> *optimizer_parameter;
+    virtual Optimizer(Abstract_map<String, long> *optimizer_parameter);
+    virtual ~Optimizer();
+    virtual void *run(AbstractMatrix<T> *parameter, AbstractMatrix<T> *gradin);
 };
 
 template <typename T>
-class Adam:Optimizer{
-    long learning_rate=0;
-    int t=0;
-    long beta1=0.9;
-    long beta2=0.9999;
-    long epsilon=0.00000001;
+class Adam : Optimizer
+{
 };
 
 template <typename T>
-class GD:Optimizer{};
+class GD : Optimizer
+{
+};
