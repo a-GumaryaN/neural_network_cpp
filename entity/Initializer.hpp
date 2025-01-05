@@ -1,4 +1,5 @@
 #include "Data_types.hpp"
+#include "IoC.hpp"
 
 template <typename Initialized_value_type>
 class Abstract_initializer
@@ -26,8 +27,11 @@ class Normal : public Abstract_initializer
     AbstractMatrix<Initialized_value_type> *run(Abstract_array<inInitialized_value_type> input_shape) override;
 };
 
+/*
+Initializer_selector :
+this class is a IoC container for initializer object
+*/
 template <typename Initialized_value_type>
-class initializer_selector
+class Initializer_selector : public Abstract_container<Abstract_initializer<Initialized_value_type>>
 {
-    Abstract_map<String,Abstract_initializer<Initialized_value_type>> *registered;
 };
