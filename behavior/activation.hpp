@@ -1,7 +1,14 @@
 #include "Activation.hpp"
 
-long Sigmoid::activation(long input) {}
+long Sigmoid::activation(long input)
+{
+}
 long Sigmoid::activation_derivative(long input) {}
+
+long Softmax::activation(long input)
+{
+}
+long Softmax::activation_derivative(long input) {}
 
 long Relu::activation(long input) {}
 long Relu::activation_derivative(long input) {}

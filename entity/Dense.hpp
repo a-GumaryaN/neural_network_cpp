@@ -2,18 +2,17 @@
 #include "Optimizer.hpp"
 
 template <typename T>
-class Dense:public Layer<T>{
-    AbstractMatrix<T> weight_matrix;
-    Optimizer<T> *weight_optimizer;
-    Optimizer<T> *bias_optimizer;
+class Dense : public Abstract_layer<T>
+{
+    Abstract_matrix<T> *weight_matrix;
+    Abstract_optimizer<T> *weight_optimizer;
+    Abstract_optimizer<T> *bias_optimizer;
 
-    void init_param(int layer_number, AbstractMatrix<T> prev_layer_shape);
-    AbstractMatrix<T> *calculate(AbstractMatrix<T> *input){
+    void init_param(int layer_number, Abstract_matrix<T> prev_layer_shape) override;
+    Abstract_matrix<T> *calculate(Abstract_matrix<T> *input) override;
 
-    }
-
-
-    void apply_delta(AbstractMatrix<T> *delta);
-    AbstractMatrix<T> *calculate_delta();
-    void update_param();
+    void apply_delta(Abstract_matrix<T> *delta) override;
+    Abstract_matrix<T> *calculate_delta() override;
+    void update_param() override;
+    Abstract_matrix<T> *get_weights() override;
 };

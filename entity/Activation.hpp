@@ -3,10 +3,16 @@
 
 class Pure_activation
 {
-    public:
+public:
     virtual long activation(long input);
     virtual long activation_derivative(long input);
     virtual ~Pure_activation();
+};
+
+class Softmax : public Pure_activation
+{
+    long activation(long input);
+    long activation_derivative(long input);
 };
 
 class Sigmoid : public Pure_activation
@@ -34,13 +40,13 @@ class Tanh : public Pure_activation
 };
 
 template <typename T>
-class Activation
+class Abstract_activation
 {
 public:
     Pure_activation *act;
 
     void set_activation(Pure_activation *act);
 
-    Matrix<T> *run(Matrix *input);
-    Matrix<T> *run_derivative(Matrix *input);
+    Abstract_matrix<T> *run(Matrix *input);
+    Abstract_matrix<T> *run_derivative(Matrix *input);
 };
