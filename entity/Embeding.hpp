@@ -1,3 +1,4 @@
+#pragma once
 #include "Layer.hpp"
 #include "Initializer.hpp"
 

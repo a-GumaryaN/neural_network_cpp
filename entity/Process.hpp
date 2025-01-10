@@ -1,3 +1,4 @@
+#pragma once
 #include "Data_types.hpp"
 
 class Task

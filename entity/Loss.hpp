@@ -1,15 +1,14 @@
+#pragma once
 #include "Data_types.hpp"
-
 template <typename T>
 class Abstract_loss
 {
-
 public:
     int number_of_data = 0;
     Abstract_matrix<T> error = 0;
     virtual Abstract_matrix<T> *loss(Abstract_matrix<T> *actual_value, Abstract_matrix<T> *expected_value);
     virtual Abstract_matrix<T> *loss_derivative(Abstract_matrix<T> *actual_value, Abstract_matrix<T> *expected_value);
-    virtual ~Loss();
+    ~Abstract_loss();
 };
 
 template <typename T>

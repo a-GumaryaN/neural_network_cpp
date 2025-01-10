@@ -1,3 +1,4 @@
+#pragma once
 #include "Layer.hpp"
 #include "Optimizer.hpp"
 
@@ -5,8 +6,7 @@ template <typename T>
 class Dense : public Abstract_layer<T>
 {
     Abstract_matrix<T> *weight_matrix;
-    Abstract_optimizer<T> *weight_optimizer;
-    Abstract_optimizer<T> *bias_optimizer;
+    Abstract_optimizer<T> *optimizer;
 
     void init_param(int layer_number, Abstract_matrix<T> prev_layer_shape) override;
     Abstract_matrix<T> *calculate(Abstract_matrix<T> *input) override;

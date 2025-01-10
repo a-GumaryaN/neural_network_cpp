@@ -1,14 +1,14 @@
-#include "Data_types.hpp"
+#pragma once
 #include "Layer.hpp"
 #include "Loss.hpp"
 #include "Network.hpp"
 
 template <typename T>
-class Sequential : public Network<T>
+class Sequential : public Abstract_network<T>
 {
     Abstract_array<Abstract_layer<T>> *layers;
-    Abstract_matrix *Network_error;
-    Loss<T> *loss_function;
+    Abstract_matrix<T> *Network_error;
+    Abstract_loss<T> *loss_function;
     Abstract_matrix<T> *network_output;
 
     Sequential(Abstract_array<Abstract_layer<T>> *layers, Abstract_matrix<T> input_shape, String initializer_name = "xavier");

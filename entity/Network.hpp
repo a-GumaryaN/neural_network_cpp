@@ -1,9 +1,11 @@
-#include "Data_types.hpp"
+#pragma once
 #include "Layer.hpp"
+#include "Optimizer.hpp"
 
 template <typename T>
-class Network
+class Abstract_network
 {
-    ~Network();
+    ~Abstract_network();
     Abstract_array<Abstract_layer<T>> layers;
+    Abstract_optimizer<T> *optimizer;
 };

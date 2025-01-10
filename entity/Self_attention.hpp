@@ -1,3 +1,4 @@
+#pragma once
 #include <vector>
 #include "Matematics.hpp"
 #include "Data_types.hpp"

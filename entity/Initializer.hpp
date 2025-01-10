@@ -1,10 +1,11 @@
+#pragma once
 #include "Data_types.hpp"
 
 template <typename Initialized_value_type>
 class Abstract_initializer
 {
 public:
-    Initializer();
+    Abstract_initializer();
     Abstract_map<String, double> *param;
     virtual Abstract_matrix<Initialized_value_type> *run(Abstract_array<Initialized_value_type> input_shape);
 };

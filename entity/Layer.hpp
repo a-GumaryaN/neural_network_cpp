@@ -1,10 +1,14 @@
-#include "Data_types.hpp"
+#pragma once
+#include "Initializer.hpp"
 #include "Activation.hpp"
+#include "Optimizer.hpp"
 
 template <typename T>
 class Abstract_layer
 {
 public:
+    Abstract_layer();
+    ~Abstract_layer();
     // number of layer in network
     int layer_number = 0;
     // shape of layer
@@ -24,12 +28,13 @@ public:
     // layer bias
     Abstract_matrix<T> *bias;
 
+    Abstract_optimizer<T> *optimizer;
+
     virtual void init_param(int layer_number, Abstract_matrix<T> prev_layer_shape);
     virtual Abstract_matrix<T> *calculate(Abstract_matrix<T> *input);
     virtual void apply_delta(Abstract_matrix<T> *delta);
     virtual Abstract_matrix<T> *calculate_delta();
     virtual void update_param();
-    virtual void set_initializer(Abstract_initializer *initializer);
+    virtual void set_initializer(Abstract_initializer<T> *initializer);
     virtual Abstract_matrix<T> *get_weights() const = 0;
-    virtual ~Layer();
 };
