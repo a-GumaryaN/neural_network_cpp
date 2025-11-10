@@ -1,6 +1,6 @@
 #pragma once
-#include "Layer.hpp"
-#include "Optimizer.hpp"
+#include "./layers/Layer.hpp"
+#include "./optimizers/Optimizer.hpp"
 
 template <typename T>
 class Abstract_network

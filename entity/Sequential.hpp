@@ -1,6 +1,6 @@
 #pragma once
-#include "Layer.hpp"
-#include "Loss.hpp"
+#include "../layers/Layer.hpp"
+#include "../loss's/Loss.hpp"
 #include "Network.hpp"
 
 template <typename T>
