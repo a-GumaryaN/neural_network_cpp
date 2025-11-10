@@ -21,9 +21,9 @@ public:
 
     void init_param(int layer_number, Abstract_matrix<T> prev_layer_length) override;
 
-    Abstract_matrix<T> calculate(const Abstract_matrix<T> &input) override;
+    Abstract_matrix<T> calculate(const Abstract_matrix<T> *input) override;
 
-    void apply_delta(const Abstract_matrix<T> &d_output) override;
+    void apply_delta(const Abstract_matrix<T> *d_output) override;
 
     Abstract_matrix<T> *calculate_delta() override;
 

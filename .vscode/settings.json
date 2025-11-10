@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "vector": "cpp",
+        "*.tcc": "cpp",
+        "memory": "cpp",
+        "optional": "cpp",
+        "string_view": "cpp",
+        "functional": "cpp",
+        "random": "cpp",
+        "string": "cpp",
+        "system_error": "cpp",
+        "new": "cpp",
+        "unordered_map": "cpp",
+        "istream": "cpp"
+    }
+}

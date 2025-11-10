@@ -1,13 +1,13 @@
-#include "Regularization.hpp"
+#include "../entity/Regularization.hpp"
 
 template <typename T>
-T L1_regularization<T>::run(Abstract_matrix<T> *loss, Network<T> *network)
+T L1_regularization<T>::run(Abstract_matrix<T> *loss, Abstract_network<T> *network)
 {
     // collecting weights
 }
 
 template <typename T>
-T L2_regularization<T>::run(Abstract_matrix<T> *loss, Network<T> *network)
+T L2_regularization<T>::run(Abstract_matrix<T> *loss, Abstract_network<T> *network)
 {
     double regularization_term = 0.0;
     for (const Abstract_layer<T> &layer : network->layers)

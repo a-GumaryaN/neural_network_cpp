@@ -1,6 +1,6 @@
-#include "Data_types.hpp"
-#include "Initializer.hpp"
-#include "Matematics.hpp"
+#include "../entity/Data_types.hpp"
+#include "../entity/Initializer.hpp"
+#include "../entity/Matematics.hpp"
 
 template <typename T>
 Abstract_matrix<T> Random<T>::*run(Abstract_array<T> input_shape)

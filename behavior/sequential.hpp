@@ -1,8 +1,8 @@
-#include "Data_types.hpp"
-#include "Sequential.hpp"
+#include "../entity/Data_types.hpp"
+#include "../entity/Sequential.hpp"
 
 template <typename T>
-Sequential<T>::Sequential(Abstract_array<Abstract_layer<T>> *layers, Abstract_matrix<T> input_shape, String initializer_name = "xavier")
+Sequential<T>::Sequential(Abstract_array<Abstract_layer<T>> *layers, Abstract_matrix<T> input_shape, String initializer = "xavier")
 {
     this->layers = layers;
     Abstract_matrix<T> shape = input_shape;
